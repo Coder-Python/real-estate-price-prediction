@@ -1,8 +1,8 @@
 # real-estate-price-prediction
 
-# <u>Data Acquisition (Part 1)</u>
+# Data Acquisition (Part 1)
 
-## <u>Description :</u>
+## Description :
 
 The goal of this project was to collect information from the [immoweb website](https://www.immoweb.be/en/search/house/for-sale?countries=BE&page=1&orderBy=relevance). We had to gather information about at least 10,000 properties all over Belgium and create a CSV file with the following columns.
 
@@ -28,7 +28,7 @@ The goal of this project was to collect information from the [immoweb website](h
 
 The dataset had to be clean in the sense of recording only numerical values. 
 
-## <u>Installation :</u>
+## Installation :
 
 The following packages were useful in order to make the project work: 
 
@@ -44,7 +44,7 @@ The following packages were useful in order to make the project work:
   - This module can be used to execute tasks concurrently. 
 - matplotlib
 
-## <u>Structure of the code :</u>
+## Structure of the code :
 
 Our program consists of three different parts. The first part of the program is responsible for gathering all the necessary links that will be used for data collection. The second part of the program uses the collected links to scrape information from those webpages. The final step of the program is to "clean" the data that has been collected. This includes removing duplicates and formatting data to have (mainly) numerical values. However, the data is not processed to remove any errors or inconsistencies. 
 
@@ -78,7 +78,7 @@ In this csv file, each line represents a new house/apartment. The column names a
 
 In this last part [merge_and_clean_data.ipynb](./data_acquisition/merge_and_clean_data.ipynb) we will merge all the csv files from the previous part. The dataframe is not clean yet. We only want to retrieve numerical values. So this part of code will include a mapping which is explained in the 'usage' of this 'readme' file.
 
-## <u>Usage :</u>
+## Usage :
 
 ### 1) Collecting the data
 
@@ -106,7 +106,7 @@ This will of course cause an additional task to merge all the CSV files. The [me
 
 The function 'create_df' will merge all the csv files into a single dataframe. This dataframe will have non-numerical values. In order to get only numerical values we have written the function clean_df. This part of the code will replace string values by numerical values (using mapping). 
 
-## <u>Visuals :</u>
+## Visuals :
 
 In this part we would like to illustrate some visuals about the output of this program. After cleaning the data, the dataframe looks as follows:
 
@@ -122,9 +122,9 @@ We did also check the range of price across all the properties and the boxplot (
 
 ---
 
-# <u>Data Analysis (Part 2) :</u>
+# Data Analysis (Part 2) :
 
-## <u>Description :</u>
+## Description :
 
 The goal of this part is to visualise the collected data with visualisation tools.
 
@@ -169,7 +169,7 @@ df["price_living_sqm2"] = df["Price"] / df["Living_Area"]
 df["price_plot_sqm2"] = df["Price"] / df["Surface_area_of_the_plot_of_land"]
 ```
 
-## **<u>Visuals :</u>**
+## Visuals :
 
 At first, we make a bar chart to see the proportion of property per regions, we can see that most of them are in Flanders :
 
