@@ -163,11 +163,10 @@ df = df.replace({"Open_fire": {False: 0, True: 1}})
 df = df.replace({"Terrace": {False: 0, True: 1}})
 df = df.replace({"Garden": {False: 0, True: 1}})
 df = df.replace({"Swimming_pool": {False: 0, True: 1}})
-    
+
 #Add two columns with the calculated price/m2 for living area alone and the whole surface area of the plot of land
 df["price_living_sqm2"] = df["Price"] / df["Living_Area"]
 df["price_plot_sqm2"] = df["Price"] / df["Surface_area_of_the_plot_of_land"]
-#the_plot_of_land"]
 ```
 
 ## **<u>Visuals :</u>**
