@@ -140,7 +140,7 @@ For this part we will use :
 
 The data obtained with the "merge_and_clean.ipynb" notebook was a bit too "cleaned", some values was replaced with numericals values and this complicates the visualisation process.
 
-So, a new "merge_and_process_data.ipynb" notebook was made to have more flexibility later on with the data.
+Therefore, a new "merge_and_process_data.ipynb" notebook was made to have more flexibility later on with the data.
 
 The .csv file obtained is then used inside the "data_visualisation.ipynb" notebook to do the visualisation.
 
