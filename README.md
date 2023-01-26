@@ -166,7 +166,7 @@ Finally, we fill the remaining NaNs with 0, Imputer was tried but with no score 
 
 ## Feature selection :
 
-MLJAR was used for this task on another Jupyter notebook, based on the result we select the following features :
+MLJAR was used for this task on another Jupyter notebook, based on the results we select the following features :
 
 * Living_Area
 
@@ -204,9 +204,9 @@ We select :
 
 * LightGBM
 
-## Hyper-parameter tuning :
+## Hyperparameter tuning :
 
-We use MLJAR to fine-tune the parameters using the "Optuna" method.
+We use MLJAR to fine-tune the parameters using the "Optuna" mode, and also GridSearchCV.
 
 We also select only rows with prices between 10k and 5M€, to remove some outliers that was impacting the accuracy.
 
@@ -225,7 +225,7 @@ XGBoost is a lot faster than GradientBoost, this is a real advantage in some sit
 
 ## Visuals :
 
-We also make some visuals to plot the Real Price vs Predicted Prices for each models.
+We also make some visuals to plot the Real prices vs Predicted prices for each models.
 
 ![eXtreme_Gradient_Boosting.png](./images/eXtreme_Gradient_Boosting.png)
 
