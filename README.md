@@ -192,9 +192,6 @@ MLJAR was used for this task on another Jupyter notebook, based on the result we
 
 * Number_of_facades
 
-
-
-
 ## Model selection :
 
 We select :
@@ -230,21 +227,13 @@ XGBoost is a lot faster than GradientBoost, this is a real advantage in some sit
 
 We also make some visuals to plot the Real Price vs Predicted Prices for each models.
 
+![eXtreme_Gradient_Boosting.png](./images/eXtreme_Gradient_Boosting.png)
 
+![Gradient_Boosting.png](./images/Gradient_Boosting.png)
 
-![eXtreme_Gradient_Boosting.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\eXtreme_Gradient_Boosting.png)
+![Random_Forest.png](./images/Random_Forest.png)
 
-
-
-![Gradient_Boosting.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\Gradient_Boosting.png)
-
-
-
-![Random_Forest.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\Random_Forest.png)
-
-
-
-![LightGBM.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\LightGBM.png)
+![LightGBM.png](./images/LightGBM.png)
 
 ---
 
