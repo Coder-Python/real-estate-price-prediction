@@ -4,45 +4,15 @@
 
 ## Description :
 
-The goal of this project was to collect information from the [immoweb website](https://www.immoweb.be/en/search/house/for-sale?countries=BE&page=1&orderBy=relevance). We had to gather information about at least 10,000 properties all over Belgium and create a CSV file with the following columns.
+The goal of this project was to collect information from the [immoweb website](https://www.immoweb.be/en/search/house/for-sale?countries=BE&page=1&orderBy=relevance). We had to gather information about at least 10,000 properties all over Belgium and create a CSV file with the following columns :
 
-* __Locality__
-* __Type of property__ (House/apartment)
-* __Subtype of property__ (Bungalow, Chalet, Mansion, ...)
-* __Price__
-* __Type of sale__ (Exclusion of life sales)
-* __Number of rooms__
-* __Living Area__
-* __Fully equipped kitchen__ (Yes/No)
-* __Furnished__ (Yes/No)
-* __Open fire__ (Yes/No)
-* __Terrace__ (Yes/No)
-  -If yes: Area
-* __Garden__ (Yes/No)
-  -If yes: Area
-* __Surface of the land__ (is none for each line, the information is given in the line : Surface area of the plot of land)
-* __Surface area of the plot of land__ 
-* __Number of facades__
-* __Swimming pool__ (Yes/No)
-* __State of the building__ (New, to be renovated, ...)
+Locality, Type of property, Subtype of property, Price, Type of sale, Number of rooms, Living Area, Fully equipped kitchen, Furnished, Open fire, Terrace, Terrace Are, Garden, Garden Area, Surface area of the plot of land, Number of facades, Swimming pool, State of the building.
 
 The dataset had to be clean in the sense of recording only numerical values. 
 
 ## Installation :
 
-The following packages were useful in order to make the project work: 
-
-- json (built-in); 
-  - This library provides a representation of the JavaScript Object Notation (JSON) with support for parsing, printing, and manipulating JSON values. 
-- pandas (pip install pandas);
-  - This library offers data structure and operations for data analysis and manipulation.
-- bs4 (pip install bs4);
-  - BeautifulSoup is a library for getting data out of XML and HTML files. The library's folder is bs4. 
-- selenium (pip install selenium);
-  - This library is useful when getting the content of dynamic web pages which rely on Javascript. It is useful when information is accessible by clicking on buttons. 
-- threading.
-  - This module can be used to execute tasks concurrently. 
-- matplotlib
+Please refer to the requirements.txt file.
 
 ## Structure of the code :
 
@@ -53,8 +23,7 @@ Our program consists of three different parts. The first part of the program is 
 The aim of the [links_collection.ipynb](./data_acquisition/links_collection.ipynb) file is to collect the links of all houses and apartment for sale on the immoweb website. In practice, the house and apartment sections are done in parallel (using threads) and both are following the same algorithm:
 
 * __first__, The algorithm goes through the 333 pages that are available:
-* __then__, scrapes these pages to get all the links it contains
-* <img title="333 pages" alt="immoweb picture" src="./images/333_pages.png">
+* __then__, scrapes these pages to get all the links it contains.
 * __lastly__, This part creates a csv file called [links.csv](./data_acquisition/links.csv) which stores all the links collected.
 
 ### 2) Scraping all the links
@@ -104,21 +73,15 @@ This will of course cause an additional task to merge all the CSV files. The [me
 
 ### 3) Cleaning the data
 
-The function 'create_df' will merge all the csv files into a single dataframe. This dataframe will have non-numerical values. In order to get only numerical values we have written the function clean_df. This part of the code will replace string values by numerical values (using mapping). 
+The function 'create_df' will merge all the csv files into a single dataframe. This dataframe will have non-numerical values. In order to get only numerical values we have written the function clean_df. This part of the code will replace string values by numerical values (using mapping).
 
 ## Visuals :
 
 In this part we would like to illustrate some visuals about the output of this program. After cleaning the data, the dataframe looks as follows:
 
-<img title="Sample output data" alt="clean dataset" src="./images/cleaned_dataset.png">
-
 Here we can see that the dataframe consists only of numerical values like required. We can see that the data is (almost) evenly distributed between the two property types (house/apartment) as we see from the pie chart below:
 
 <img title="Pie chart distribution of data" alt="pie chart" src="./images/piechart.png">
-
-We did also check the range of price across all the properties and the boxplot (below) looks quite normal. 
-
-<img title="Boxplot price range" alt="boxplot" src="./images/boxplot.png"> 
 
 ---
 
@@ -130,13 +93,7 @@ The goal of this part is to visualise the collected data with visualisation tool
 
 For this part we will use :
 
-- Numpy
-
-- Pandas
-
-- Matplotlib
-
-- Seaborn
+- See requirements.txt
 
 The data obtained with the "merge_and_clean.ipynb" notebook was a bit too "cleaned", some values was replaced with numericals values and this complicates the visualisation process.
 
@@ -171,28 +128,126 @@ df["price_plot_sqm2"] = df["Price"] / df["Surface_area_of_the_plot_of_land"]
 
 ## Visuals :
 
-At first, we make a bar chart to see the proportion of property per regions, we can see that most of them are in Flanders :
-
-<img title="Viz" src="./images/data_distribution_per_region.png" alt="">
-
-Then, we print an histogram of prices, we see that most price are around 250000€ :
+We print an histogram of prices, we see that most price are around 250000€ :
 
 <img title="" src="./images/Price_histogram.png" alt="">
 
-To see correlation between values, we use a correlation matrix, this will be usefull later for feature selection for machine learning :
+We use a correlation matrix, this will be usefull later for feature selection for machine learning :
 
 <img title="Viz" src="./images/Correlation_matrix.png" alt="">
 
-We also print two boxplots for the price/m², the first one compares between property types, we see that house are cheaper per m² than apartment :
-
-<img title="Viz" src="./images/Price_per_living_sqm2_comparaison_between_property_types.png" alt="">
-
-And the second one compares between property subtypes, we see that the kot (student bedsits) are the most expensive ones ! Lowest median value are in "farmhouse" subtype :
+We compare property subtypes, we see that the kot (student bedsits) are the most expensive ones ! Lowest median value are in "farmhouse" subtype :
 
 <img title="Viz" src="./images/Price_per_living_sqm2_comparaison_between_property_subtypes.png" alt="">
 
-Finally, we display a scatter plot of prices vs living area, that also show that house (orange) are cheaper per m² than appartement (blue) :
+---
 
-<img title="Viz" src="./images/Price_vs_LivingArea_scatterplot.png" alt="">
+# Data Modeling (Part 3) :
+
+## Description :
+
+The goal of this part is to create a machine learning model with the datas using different regressor and compare the results.
+
+For this part we will use :
+
+- See requirements.txt
+
+## Preprocessing :
+
+First, we load the all_infos_processed.csv file and we use dictionnaries to replace the categorical values with numbers (starting from 1).
+
+This process is ok when we are using models that rely on rules, like decisions trees, otherwise it's better to use different method of preprocessing like onehot encoder in Sklearn or dummies in Pandas.
+
+Then, we drop missing values in "Price" column as we cannot use empty targets to train our model.
+
+We don't use feature scaling, as it wasn't mandatory for decision trees based algos, and the gain of accuracy was negligible during testing.
+
+Finally, we fill the remaining NaNs with 0, Imputer was tried but with no score improvement either.
+
+## Feature selection :
+
+MLJAR was used for this task on another Jupyter notebook, based on the result we select the following features :
+
+* Living_Area
+
+* Locality
+
+* Surface_area_of_the_plot_of_land
+
+* Number_of_rooms
+
+* Type_of_property
+
+* Subtype_of_property
+
+* State_of_the_building
+
+* Terrace_Area
+
+* Garden_Area
+
+* Fully_equipped_kitchen
+
+* Swimming_pool
+
+* Number_of_facades
+
+
+
+
+## Model selection :
+
+We select :
+
+* XGBoost
+
+* GradientBoostingRegressor (SKlearn)
+
+* RandomForestRegressor (SKlearn)
+
+* LightGBM
+
+## Hyper-parameter tuning :
+
+We use MLJAR to fine-tune the parameters using the "Optuna" method.
+
+We also select only rows with prices between 10k and 5M€, to remove some outliers that was impacting the accuracy.
+
+## Score :
+
+| Model         | R2     | MAPE   | MAE    | RMSE   | Runtime |
+| ------------- | ------ | ------ | ------ | ------ | ------- |
+| XGBoost       | 84.72% | 23.24% | 96677  | 196636 | 2.4sec  |
+| GradientBoost | 83.83% | 22.73% | 95257  | 202287 | 16.5sec |
+| RandomForest  | 81.75% | 24.92% | 102209 | 214856 | 3.3sec  |
+| LightGBM      | 80.87% | 23.67% | 99088  | 220002 | 2.3sec  |
+
+As we can see, XGBoost is the best for R2, but if we look at MAPE, GradientBoost is a bit better than XGBoost.
+
+XGBoost is a lot faster than GradientBoost, this is a real advantage in some situations (large datasets for example) that should be taken into account.
+
+## Visuals :
+
+We also make some visuals to plot the Real Price vs Predicted Prices for each models.
+
+
+
+![eXtreme_Gradient_Boosting.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\eXtreme_Gradient_Boosting.png)
+
+
+
+![Gradient_Boosting.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\Gradient_Boosting.png)
+
+
+
+![Random_Forest.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\Random_Forest.png)
+
+
+
+![LightGBM.png](C:\Users\Sebastien\Desktop\BeCode\real-estate-price-prediction\images\LightGBM.png)
 
 ---
+
+# Deployment (Part 4) :
+
+Work in progress ;-)
