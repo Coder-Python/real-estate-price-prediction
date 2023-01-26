@@ -223,6 +223,8 @@ As we can see, XGBoost is the best for R2, but if we look at MAPE, GradientBoost
 
 XGBoost is a lot faster than GradientBoost, this is a real advantage in some situations (large datasets for example) that should be taken into account.
 
+Some tests was also made by separating House and Appartment for training the model, the model was slightly better on Appartment category, due to less variation in features than in House category.
+
 ## Visuals :
 
 We also make some visuals to plot the Real prices vs Predicted prices for each models.
