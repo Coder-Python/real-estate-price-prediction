@@ -5,22 +5,24 @@ from predict.prediction import predict
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def home():
     return "<h1>Alive !</h1>"
 
 
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route("/predict", methods=["GET", "POST"])
 def pred():
-    if request.method == 'POST':
+    if request.method == "POST":
         data = request.get_json()
         processed_data = preprocess(data)
         prediction = predict(processed_data)
-        
+
         # Return the prediction in JSON format
-        return json.dumps({'prediction': int(prediction.tolist()[0])})
+        return json.dumps({"prediction": int(prediction.tolist()[0])})
     else:
         return "<h1>Please use POST method !</h1>"
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=False)
