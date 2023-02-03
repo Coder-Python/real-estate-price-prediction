@@ -257,7 +257,7 @@ The base url return "Alive !" when the server is up and running.
 
 The /predict" endpoint with POST method is used to make a prediction : https://flask-api-ysw1.onrender.com/predict
 
-PS : Render free services can take some time to load the service after a period of inactivity, i have seen up to 1min of delay for the first request, so please click on the base url first and wait for the "Alive !" response, then you are good to go !
+PS : Render free services can take some time to load after a period of inactivity, i have seen up to 1min of delay for the first request, so please click on the base url first and wait for the "Alive !" response, then you are good to go !
 
 ## Data format :
 
