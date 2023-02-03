@@ -255,7 +255,7 @@ The service is an API accessible at this url : https://flask-api-ysw1.onrender.c
 
 The base url return "Alive !" when the server is up and running.
 
-The "/predict" endpoint with POST method is used to make prediction : https://flask-api-ysw1.onrender.com/predict
+The "/predict" endpoint with POST method is used to make a prediction : https://flask-api-ysw1.onrender.com/predict
 
 ## Data format :
 
@@ -272,7 +272,7 @@ The POST request should be made with this json format ("HOUSE" or "APARTMENT" ca
 }
 ```
 
-The previous request if for a house with 120m² of living area, with 4 rooms, at Liège.
+The previous request is for a house with 120m² of living area and 4 rooms, at Liège.
 
 The json output is as follow, the predicted price is an integer :
 
@@ -280,7 +280,7 @@ The json output is as follow, the predicted price is an integer :
 {"prediction": 257866}
 ```
 
-Here is a screenshot of a test done with Postman :
+Here is a screenshot of a test done with Postman, everything works as expected :
 
 ![postman.png](./images/postman.png)
 
@@ -288,4 +288,4 @@ Here is a screenshot of a test done with Postman :
 
 A dedicated requirement.txt and a Dockerfile was created to be able to build/deploy the API on render, they are available in the /deployment folder.
 
-Tip : After many trial and error, i realise that sklearn was need for xgboost, otherwise xgboost doesn't work, sklearn was then added in the requirement.txt file.
+Tip : After many trial and error, i realise that sklearn was needed for xgboost, otherwise xgboost doesn't work, sklearn was then added to the requirement.txt file.
