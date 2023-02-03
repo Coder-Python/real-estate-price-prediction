@@ -77,9 +77,9 @@ The function 'create_df' will merge all the csv files into a single dataframe. T
 
 ## Visuals :
 
-In this part we would like to illustrate some visuals about the output of this program. After cleaning the data, the dataframe looks as follows:
+In this part we would like to illustrate the output of this program. 
 
-Here we can see that the dataframe consists only of numerical values like required. We can see that the data is (almost) evenly distributed between the two property types (house/apartment) as we see from the pie chart below:
+We can see that the dataframe consists only of numerical values like required. We can see that the data is (almost) evenly distributed between the two property types (house/apartment) as we see from the pie chart below:
 
 <img title="Pie chart distribution of data" alt="pie chart" src="./images/piechart.png">
 
@@ -241,4 +241,43 @@ We also make some visuals to plot the Real prices vs Predicted prices for each m
 
 # Deployment (Part 4) :
 
-Work in progress ;-)
+## Description :
+
+The goal of this part is to give a way to the user to get some prediction with our model.
+
+For this part we will use :
+
+- See requirements.txt
+
+## Access :
+
+The service is an API accessible at this url : https://flask-api-ysw1.onrender.com
+
+The base url return "Alive !" when the server is up and running.
+
+The "/predict" endpoint is used to make prediction : https://flask-api-ysw1.onrender.com/predict
+
+## Data format :
+
+The POST request should be made with this json format ("HOUSE" or "APARTMENT" can be used for "Type_of_property", if the string is empty, "House" will be used by default) :
+
+```json
+{
+  "data": {
+    "Living_Area": 120,
+    "Type_of_property": "HOUSE",
+    "Number_of_rooms": 4,
+    "Locality": 4000
+  }
+}
+```
+
+The json output is as follow, the value is rounded to an integer :
+
+```json
+{"prediction": 315310}
+```
+
+## TODO :
+
+## TODO :
