@@ -247,7 +247,7 @@ The goal of this part is to give a way to the user to get some prediction with o
 
 For this part we will use :
 
-- See requirements.txt
+- See deployment/requirements.txt
 
 ## Access :
 
@@ -284,4 +284,8 @@ Here is a screenshot of a test done with Postman :
 
 ![postman.png](./images/postman.png)
 
-## TODO :
+## Deploy on render :
+
+A dedicated requirement.txt and a Dockerfile was created to be able to build/deploy the API on render, they are available in the /deployment folder.
+
+Tip : After many trial and error, i realise that sklearn was need for xgboost, otherwise xgboost doesn't work, sklearn was then added in the requirement.txt file.
