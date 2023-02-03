@@ -290,6 +290,6 @@ Here is a screenshot of a test done with Postman, everything works as expected :
 
 A dedicated requirements.txt and a Dockerfile was created to be able to build/deploy the API on render, they are available in the /deployment folder.
 
-This part was quite challenging, and after many trial and error, i realise that sklearn was needed for xgboost, otherwise xgboost doesn't work, sklearn was then added to the deployment/requirements.txt file.
+This part was quite challenging, and after many trial and error, i realised that sklearn was needed for xgboost to work, so sklearn was added to the deployment/requirements.txt file.
 
 ---
