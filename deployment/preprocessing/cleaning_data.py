@@ -1,3 +1,4 @@
+# Data preprocessing
 def preprocess(data):
     living_area = data["data"]["Living_Area"]
     type_of_property = data["data"]["Type_of_property"]

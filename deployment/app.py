@@ -1,3 +1,4 @@
+# Main application
 from flask import Flask, request
 import json
 from preprocessing.cleaning_data import preprocess
