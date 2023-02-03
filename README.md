@@ -243,7 +243,7 @@ We also make some visuals to plot the Real prices vs Predicted prices for each m
 
 ## Description :
 
-The goal of this part is to give a way to the user to get some prediction with our model.
+The goal of this part is to give a way to the user to obtain a prediction with our model.
 
 For this part we will use :
 
@@ -255,7 +255,9 @@ The service is an API accessible at this url : https://flask-api-ysw1.onrender.c
 
 The base url return "Alive !" when the server is up and running.
 
-The "/predict" endpoint with POST method is used to make a prediction : https://flask-api-ysw1.onrender.com/predict
+The /predict" endpoint with POST method is used to make a prediction : https://flask-api-ysw1.onrender.com/predict
+
+PS : Render free services can take some time to load the service after a period of inactivity, i have seen up to 1min of delay for the first request, so please click on the base url first and wait for the "Alive !" response, then you are good to go !
 
 ## Data format :
 
@@ -272,7 +274,7 @@ The POST request should be made with this json format ("HOUSE" or "APARTMENT" ca
 }
 ```
 
-The previous request is for a house with 120m² of living area and 4 rooms, at Liège.
+The previous request is for a house with 160m² of living area and 4 rooms, at Liège (4000).
 
 The json output is as follow, the predicted price is an integer :
 
@@ -286,6 +288,8 @@ Here is a screenshot of a test done with Postman, everything works as expected :
 
 ## Deploy on render :
 
-A dedicated requirement.txt and a Dockerfile was created to be able to build/deploy the API on render, they are available in the /deployment folder.
+A dedicated requirements.txt and a Dockerfile was created to be able to build/deploy the API on render, they are available in the /deployment folder.
 
-Tip : After many trial and error, i realise that sklearn was needed for xgboost, otherwise xgboost doesn't work, sklearn was then added to the requirement.txt file.
+This part was quite challenging, and after many trial and error, i realise that sklearn was needed for xgboost, otherwise xgboost doesn't work, sklearn was then added to the deployment/requirements.txt file.
+
+---
