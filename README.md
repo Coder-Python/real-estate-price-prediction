@@ -261,7 +261,7 @@ PS : Render free services can take some time to load after a period of inactivit
 
 ## Data format :
 
-The POST request should be made with this json format ("HOUSE" or "APARTMENT" can be used for "Type_of_property", but if the string is empty, "House" will be used by default), all values are mandatory :
+The POST request should be made with this json format ("HOUSE" or "APARTMENT" can be used for "Type_of_property", but if the string is empty, "House" will be used by default), all fields/values are mandatory :
 
 ```json
 {
