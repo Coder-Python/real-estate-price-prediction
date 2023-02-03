@@ -264,7 +264,7 @@ The POST request should be made with this json format ("HOUSE" or "APARTMENT" ca
 ```json
 {
   "data": {
-    "Living_Area": 120,
+    "Living_Area": 160,
     "Type_of_property": "HOUSE",
     "Number_of_rooms": 4,
     "Locality": 4000
@@ -277,9 +277,11 @@ The previous request if for a house with 120m² of living area, with 4 rooms, at
 The json output is as follow, the predicted price is an integer :
 
 ```json
-{"prediction": 315310}
+{"prediction": 257866}
 ```
 
-## TODO :
+Here is a screenshot of a test done with Postman :
+
+![postman.png](./images/postman.png)
 
 ## TODO :
