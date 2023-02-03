@@ -255,11 +255,11 @@ The service is an API accessible at this url : https://flask-api-ysw1.onrender.c
 
 The base url return "Alive !" when the server is up and running.
 
-The "/predict" endpoint is used to make prediction : https://flask-api-ysw1.onrender.com/predict
+The "/predict" endpoint with POST method is used to make prediction : https://flask-api-ysw1.onrender.com/predict
 
 ## Data format :
 
-The POST request should be made with this json format ("HOUSE" or "APARTMENT" can be used for "Type_of_property", if the string is empty, "House" will be used by default) :
+The POST request should be made with this json format ("HOUSE" or "APARTMENT" can be used for "Type_of_property", but if the string is empty, "House" will be used by default), all values are mandatory :
 
 ```json
 {
@@ -272,7 +272,9 @@ The POST request should be made with this json format ("HOUSE" or "APARTMENT" ca
 }
 ```
 
-The json output is as follow, the value is rounded to an integer :
+The previous request if for a house with 120m² of living area, with 4 rooms, at Liège.
+
+The json output is as follow, the predicted price is an integer :
 
 ```json
 {"prediction": 315310}
