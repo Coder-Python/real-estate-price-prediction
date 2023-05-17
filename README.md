@@ -1,6 +1,8 @@
-# real-estate-price-prediction
+# Real Estate Price Prediction (full project)
 
-# Data Acquisition (Part 1)
+This is a learning project completed at BeCode Liège. The first part (data acquisition) involved team work, while the subsequent parts were personal learning projects.
+
+# Data Acquisition (Part 1) :
 
 ## Description :
 
@@ -12,44 +14,46 @@ The dataset had to be clean in the sense of recording only numerical values.
 
 ## Installation :
 
-Please refer to the requirements.txt file.
+Please refer to the *requirements.txt* file.
 
 ## Structure of the code :
 
 Our program consists of three different parts. The first part of the program is responsible for gathering all the necessary links that will be used for data collection. The second part of the program uses the collected links to scrape information from those webpages. The final step of the program is to "clean" the data that has been collected. This includes removing duplicates and formatting data to have (mainly) numerical values. However, the data is not processed to remove any errors or inconsistencies. 
 
-### 1) Collecting the links
+### 1) Collecting the links :
 
 The aim of the [links_collection.ipynb](./data_acquisition/links_collection.ipynb) file is to collect the links of all houses and apartment for sale on the immoweb website. In practice, the house and apartment sections are done in parallel (using threads) and both are following the same algorithm:
 
-* __first__, The algorithm goes through the 333 pages that are available:
+* __first__, The algorithm goes through the 333 pages that are available.
 * __then__, scrapes these pages to get all the links it contains.
 * __lastly__, This part creates a csv file called [links.csv](./data_acquisition/links.csv) which stores all the links collected.
 
-### 2) Scraping all the links
+### 2) Scraping all the links :
 
 For all the links that are stored in the links.csv file, [house_scrapping.ipynb](./data_acquisition/house_scrapping.ipynb) will:
 
-* open the link
-* scrape the available information
-* <img title="one page example" alt="immoweb picture2" src="./images/infos.png">
-* store all the collected information into different csv files called all_info_TeamMember1_1-5000.csv, all_info_TeamMember1_1-10000.csv, all_info_TeamMember2_10000-15000.csv, etc. These files will be merged in the next step of the program. 
+* Open the link
+* Scrape the available information
+
+<img title="one page example" alt="immoweb picture2" src="./images/infos.png">
+
+* store all the collected information into different csv files called all_info_TeamMember1_1-5000.csv, all_info_TeamMember1_1-10000.csv, all_info_TeamMember2_10000-15000.csv, etc. These files will be merged in the next step of the program.
 
 In this csv file, each line represents a new house/apartment. The column names are given in the Description section. In this part a special type of multithreading was implemented, which is called teamwork: 
 
 - pip install nicePeople
 
 - from nicePeople import teamwork 
-  
-  We have splitted the links (20000 in total) in three to collect the information in parallel. The reason for this was to minimize the risk of being blocked by the immoweb website if we'd have used 'real' concurrency. 
 
-### 3) Cleaning the data
+We have splitted the links (20000 in total) in three to collect the information in parallel. The reason for this was to minimize the risk of being blocked by the immoweb website if we'd have used 'real' concurrency. 
+
+### 3) Cleaning the data :
 
 In this last part [merge_and_clean_data.ipynb](./data_acquisition/merge_and_clean_data.ipynb) we will merge all the csv files from the previous part. The dataframe is not clean yet. We only want to retrieve numerical values. So this part of code will include a mapping which is explained in the 'usage' of this 'readme' file.
 
 ## Usage :
 
-### 1) Collecting the data
+### 1) Collecting the data :
 
 You can use any WebDriver through Selenium to get and extract the URL of each page. The Firefox WebDriver was used in this project with an additional option (headless) which doesn't show the process of opening and closing the pages. 
 
@@ -57,7 +61,7 @@ In order to collect the links of all houses and apartments for sale, we had a lo
 
 This workprocess will take about 1 hour. 
 
-### 2) Scraping all the links
+### 2) Scraping all the links :
 
 To scrape each propertylink we have parsed the HTML website using BeautifulSoup library. We saw that the information was under a "script" with type "text/javascript" and that property items could be found in "window_classified".
 
@@ -71,7 +75,7 @@ This (shared) workprocess can take up to 4 hours when divided between two or mor
 
 This will of course cause an additional task to merge all the CSV files. The [merge_and_clean_data.ipynb](./data_acquisition/merge_and_clean_data.ipynb) will execute this for you. 
 
-### 3) Cleaning the data
+### 3) Cleaning the data :
 
 The function 'create_df' will merge all the csv files into a single dataframe. This dataframe will have non-numerical values. In order to get only numerical values we have written the function clean_df. This part of the code will replace string values by numerical values (using mapping).
 
