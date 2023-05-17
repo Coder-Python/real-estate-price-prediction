@@ -1,6 +1,6 @@
 # Real Estate Price Prediction (full project)
 
-This is a learning project completed at BeCode Liège. The first part (data acquisition) involved team work, while the subsequent parts were personal learning projects.
+This is our first learning project completed at BeCode Liège. The first part (data acquisition) involved team work, while the subsequent parts were personal learning projects.
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white)
